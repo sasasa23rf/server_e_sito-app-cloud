@@ -502,8 +502,8 @@ button:hover {
 /* Rimpicciolimento totale per schermi piccoli */
 @media (max-width: 450px) and (max-height: 950px) {
   html {
-    transform: scale(0.7);
-    transform-origin: top left;
+    transform: scale(0.5);
+
     /* Compensa lo spazio lasciato dal ridimensionamento */
     width: 143%;
   }
