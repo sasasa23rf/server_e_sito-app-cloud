@@ -504,6 +504,7 @@ button:hover {
   html {
     transform: scale(0.7);
     transform-origin: center center;
+    width: 143%;
 
   }
 }
