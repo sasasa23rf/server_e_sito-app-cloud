@@ -108,10 +108,10 @@ window.addEventListener('load', () => {
 function showDownloadOptions() {
   console.log('📱 Avvio download APK App Cloud...');
   
-  // Crea un link temporaneo per il download
+  // Crea un link temporaneo per il download dall'ultima release su GitHub
   const link = document.createElement('a');
-  link.href = './downloads/App_Cloud.apk';
-  link.download = 'App_Cloud.apk';
+  link.href = 'https://github.com/sasasa23rf/server_e_sito-app-cloud/releases/download/v1.0.0/app-release.apk';
+  link.download = 'app-release.apk';
   link.style.display = 'none';
   
   // Aggiungi al DOM, clicca e rimuovi
