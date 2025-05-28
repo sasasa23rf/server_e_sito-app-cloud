@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  <title>Accesso File Sicuro</title>
+  <link rel="stylesheet" href="styles.css">  <script src="/socket.io/socket.io.js"></script>
+  <!-- Libreria per generare QR Code -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Accesso File Sicuro</h1>
+      <div id="codeSection">
+      <div class="instructions">
+        <strong>📱 Istruzioni:</strong><br>
+        1. Apri l'app sul tuo telefono<br>
+        2. Scansiona il QR code con la fotocamera<br>
+        3. I tuoi file saranno caricati automaticamente
+      </div>
+      
+      <div class="code-display">
+        <canvas id="qrCodeCanvas" style="border: 2px solid #ddd; border-radius: 8px; display: none;"></canvas>
+        <div class="code" id="generatedCode" style="display: none;">—</div>
+      </div>
+        <div class="status waiting" id="status">
+        ⏳ In attesa di generare un codice…
+      </div>
+      
+      <div class="button-container">
+        <button id="genCodeBtn">🔄 Genera Codice</button>
+        <button id="downloadAppBtn" class="download-app-btn">📱 Scarica App</button>
+      </div>
+    </div>
+      <div id="connectedSection" style="display: none;">
+      <div class="status connected" id="statusConnected">
+        ✅ Telefono connesso! In attesa dei file...
+      </div>      <!-- Sezione Upload File -->
+      <div class="upload-section">
+        <h3>📤 Carica File sul Telefono</h3>
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="fileInput" multiple style="display: none;" accept="*/*">
+          <div class="upload-drop-zone" id="dropZone">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text">
+              <strong>Clicca per selezionare file</strong><br>
+              oppure trascina i file qui
+            </div>
+          </div>          <div style="margin-top: 10px; display: flex; gap: 10px;">
+            <button id="createFolderBtn" style="flex: 1; background: #ff9800; border-color: #ff9800;">
+              📁 Crea Nuova Cartella
+            </button>
+            <button id="disconnectBtn" style="flex: 1;">
+              🔌 Disconnetti
+            </button>
+          </div>
+        </div>
+        
+        <!-- Lista file in upload -->
+        <div id="uploadQueue" style="display: none;">
+          <h4>📋 File in Caricamento</h4>
+          <div id="uploadList"></div>
+        </div>
+      </div>
+      
+      <div class="file-explorer" id="fileExplorer">
+        <!-- I file arriveranno qui -->
+        <div class="file-item">
+          <span class="file-name">example.txt</span>
+          <div class="file-options">
+            <button class="rename-btn">Rinomina</button>
+            <button class="delete-btn">Elimina</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
